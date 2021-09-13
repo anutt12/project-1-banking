@@ -4,6 +4,8 @@ public class AccountHolder {
     private String lastName;
     private String passWord;
     private int accountNumber;
+    private CheckingAccount checkingAccount;
+    private SavingsAccount savingsAccount;
 
     public String getFirstName() {
         return firstName;
@@ -37,12 +39,31 @@ public class AccountHolder {
         this.accountNumber = accountNumber;
     }
 
-    public AccountHolder(String firstName, String lastName, String passWord, int accountNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.passWord = passWord;
-        this.accountNumber = accountNumber;
+    public CheckingAccount getCheckingAccount() {
+        return checkingAccount;
+    }
 
+    public void setCheckingAccount(CheckingAccount checkingAccount) {
+        this.checkingAccount = checkingAccount;
+    }
 
+    public SavingsAccount getSavingsAccount() {
+        return savingsAccount;
+    }
+
+    public void setSavingsAccount(SavingsAccount savingsAccount) {
+        this.savingsAccount = savingsAccount;
+    }
+
+    @Override
+    public String toString() {
+        return "AccountHolder{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", accountNumber=" + accountNumber +
+                ", checkingAccount=" + checkingAccount +
+                ", savingsAccount=" + savingsAccount +
+                '}';
     }
 }
