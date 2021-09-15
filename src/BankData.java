@@ -32,6 +32,7 @@ public static List<AccountHolder> bankCustomers = new ArrayList<>();
                 SavingsAccount savingsAccount = new SavingsAccount(Float.parseFloat(data[5]));
                 accountHolder.setCheckingAccount(checkingAccount);
                 accountHolder.setSavingsAccount(savingsAccount);
+                //checkingAccount.getBalance(checkingAccount);
                 bankCustomers.add(accountHolder);
 
                 currentLine = reader.readLine();
