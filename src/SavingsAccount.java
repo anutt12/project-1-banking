@@ -2,9 +2,7 @@ public class SavingsAccount implements AccountActions{
 
     private float balance;
 
-    public SavingsAccount(float balance) {
-        this.balance = balance;
-    }
+    public SavingsAccount(float balance) {this.balance = balance;}
 
 
     @Override
@@ -13,7 +11,7 @@ public class SavingsAccount implements AccountActions{
     }
 
     @Override
-    public void withdrawalMoney(float amount) {
+    public void withdrawalMoney(double amount) {
         this.balance -= amount;
     }
 

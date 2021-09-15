@@ -2,6 +2,7 @@ public class CheckingAccount implements AccountActions {
 
     private float balance;
 
+
     public CheckingAccount(float balance) {
         this.balance = balance;
     }
@@ -13,7 +14,7 @@ public class CheckingAccount implements AccountActions {
     }
 
     @Override
-    public void withdrawalMoney(float amount) {
+    public void withdrawalMoney(double amount) {
         this.balance -= amount;
     }
 

@@ -1,4 +1,5 @@
 import java.sql.SQLOutput;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Functions {
@@ -16,12 +17,48 @@ public class Functions {
             Scanner checkingOptionsScanner = new Scanner(System.in);
             int checkingChoice = checkingOptionsScanner.nextInt();
             if(checkingChoice == 1){
-                System.out.println("Your balance is: ");
+                System.out.println("Your balance is: " + accountHolder.getCheckingAccount().getBalance());
+                Functions.mainMenu(accountHolder);
+
             }
             else if(checkingChoice == 2){
                 System.out.println("How much would you like to deposit?");
+                System.out.println("Enter Amount: " );
+                Scanner checkingDepositScanner = new Scanner(System.in);
+                double amount = checkingDepositScanner.nextDouble();
+                try {
+                    if (amount > 0){
+                        accountHolder.getCheckingAccount().depositMoney(amount);
+                        System.out.println("Your new balance is: " + accountHolder.getCheckingAccount().getBalance());
+                        Functions.mainMenu(accountHolder);
+                    }else {
+                        System.out.println("Invalid amount.");
+                        Functions.mainMenu(accountHolder);
+                    }
+                }catch (InputMismatchException e) {
+                    System.out.println("Return to Menu");
+                    Functions.mainMenu(accountHolder);
+                }
+
+
             }else if(checkingChoice == 3){
                 System.out.println("How much would you like to withdraw?");
+                System.out.println("Enter Amount: " );
+                Scanner checkingWithdrawalScanner = new Scanner(System.in);
+                double amount = checkingWithdrawalScanner.nextDouble();
+                try {
+                    if (amount > 0){
+                        accountHolder.getCheckingAccount().withdrawalMoney(amount);
+                        System.out.println("Your new balance is: " + accountHolder.getCheckingAccount().getBalance());
+                        Functions.mainMenu(accountHolder);
+                    }else {
+                        System.out.println("Invalid amount.");
+                        Functions.mainMenu(accountHolder);
+                    }
+                }catch (InputMismatchException e) {
+                    System.out.println("Return to Menu");
+                    Functions.mainMenu(accountHolder);
+                }
             }else if(checkingChoice == 4){
                 System.out.println("Who would you like to transfer to?");
             }
@@ -31,12 +68,44 @@ public class Functions {
             Scanner savingsOptionsScanner = new Scanner(System.in);
             int savingsChoice = savingsOptionsScanner.nextInt();
             if(savingsChoice == 1){
-                System.out.println("Your balance is: ");
+                System.out.println("Your balance is: " + accountHolder.getSavingsAccount().getBalance());
+                Functions.mainMenu(accountHolder);
             }
             else if(savingsChoice == 2){
                 System.out.println("How much would you like to deposit?");
+                Scanner savingsDepositScanner = new Scanner(System.in);
+                double amount = savingsDepositScanner.nextDouble();
+                try {
+                    if (amount > 0){
+                        accountHolder.getSavingsAccount().depositMoney(amount);
+                        System.out.println("Your new balance is: " + accountHolder.getSavingsAccount().getBalance());
+                        Functions.mainMenu(accountHolder);
+                    }else {
+                        System.out.println("Invalid amount.");
+                        Functions.mainMenu(accountHolder);
+                    }
+                }catch (InputMismatchException e) {
+                    System.out.println("Return to Menu");
+                    Functions.mainMenu(accountHolder);
+                }
             }else if(savingsChoice == 3){
                 System.out.println("How much would you like to withdraw?");
+                System.out.println("Enter Amount: " );
+                Scanner savingsWithdrawalScanner = new Scanner(System.in);
+                double amount = savingsWithdrawalScanner.nextDouble();
+                try {
+                    if (amount > 0){
+                        accountHolder.getSavingsAccount().withdrawalMoney(amount);
+                        System.out.println("Your new balance is: " + accountHolder.getSavingsAccount().getBalance());
+                        Functions.mainMenu(accountHolder);
+                    }else {
+                        System.out.println("Invalid amount.");
+                        Functions.mainMenu(accountHolder);
+                    }
+                }catch (InputMismatchException e) {
+                    System.out.println("Return to Menu");
+                    Functions.mainMenu(accountHolder);
+                }
             }else if(savingsChoice == 4){
                 System.out.println("Where would you like to transfer to?");
             }
@@ -45,6 +114,8 @@ public class Functions {
             System.exit(0);
         }else{
             System.out.println("Incorrect choice");
+            Functions.mainMenu(accountHolder);
+
         }
     }
     public static void userLogin(int accountNumber, String passWord) {

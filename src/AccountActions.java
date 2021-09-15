@@ -1,9 +1,8 @@
 public interface AccountActions {
 
     void depositMoney (double amount);
-    void withdrawalMoney (float amount);
+    void withdrawalMoney (double amount);
     float getBalance ();
-
 
 
 }
