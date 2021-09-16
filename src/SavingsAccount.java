@@ -16,6 +16,11 @@ public class SavingsAccount implements AccountActions{
     }
 
     @Override
+    public void transferMoney(double amount) {
+
+    }
+
+    @Override
     public float getBalance() {
         return balance;
     }

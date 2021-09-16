@@ -19,6 +19,11 @@ public class CheckingAccount implements AccountActions {
     }
 
     @Override
+    public void transferMoney(double amount) {
+
+    }
+
+    @Override
     public float getBalance() {
         return balance;
     }
