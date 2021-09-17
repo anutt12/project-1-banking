@@ -25,18 +25,35 @@ public class AcmeBank {
 
     public static void main(String[] args) throws IOException {
         BankData.readFile("C:\\Users\\anutt\\Desktop\\paypal-sei\\unit1\\java-project-1\\src\\customers.txt");
+        //BankData.writeFile("C:\\Users\\anutt\\Desktop\\paypal-sei\\unit1\\java-project-1\\src\\customers.txt");
 
         //for (int i = 0; i < BankData.bankCustomers.size(); i++) {
         //System.out.println(BankData.bankCustomers.get());
 
-        Scanner accountscanner = new Scanner(System.in);
-        Scanner passwordscanner = new Scanner(System.in);
+        System.out.println("Welcome to Acme Bank online portal.");
+        System.out.println("Enter 1 to log in, or 2 to create new account");
+        Scanner initializeOptionsScanner = new Scanner(System.in);
+        int option = initializeOptionsScanner.nextInt();
 
-        System.out.println("Enter Account Number:");
-        Integer accountNumber = accountscanner.nextInt();
-        System.out.println("Enter Password:");
-        String passWord = passwordscanner.nextLine();
-        Functions.userLogin(accountNumber, passWord);
+        if (option == 1) {
+            Scanner accountscanner = new Scanner(System.in);
+            Scanner passwordscanner = new Scanner(System.in);
+
+            System.out.println("Enter Account Number:");
+            Integer accountNumber = accountscanner.nextInt();
+            System.out.println("Enter Password:");
+            String passWord = passwordscanner.nextLine();
+            Functions.userLogin(accountNumber, passWord);
+        } else if (option == 2) {
+            Functions.createNewAccount();
+        } else if (option == 3) {
+            System.out.println("Exiting System");
+            System.exit(0);
+        } else {
+            System.out.println("Incorrect choice");
+            //Functions.mainMenu(accountHolder);
+
+        }
     }
 
 }

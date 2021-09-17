@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -43,6 +40,32 @@ public static List<AccountHolder> bankCustomers = new ArrayList<>();
         }
     }
 
-}
+//      static void writeFile(String fileName) throws IOException {
+//            File file = new File(fileName);
+//            FileWriter fw = new FileWriter(file, true);
+//            BufferedWriter br = new BufferedWriter(fw);
+//            for(AccountHolder accountHolder : bankCustomers){
+//                fw.write((accountHolder.getAccountNumber() + "," + accountHolder.getFirstName() + "," + accountHolder.getLastName() + "," + accountHolder.getPassWord() + "," + accountHolder.getCheckingAccount() + "," + accountHolder.getSavingsAccount()));
+//            }
+//
+//       ;
+//            fw.close();
+//
+//        }
+
+    static void createAccount(AccountHolder accountHolder)throws IOException{
+        File fileOut = new File("C:\\Users\\anutt\\Desktop\\paypal-sei\\unit1\\java-project-1\\src\\customers.txt");
+        FileWriter fw = new FileWriter(fileOut, true);
+        BufferedWriter bufferedWriterNewCustomer = new BufferedWriter(fw);
+        String content = accountHolder.getAccountNumber() + "," + accountHolder.getFirstName() + "," + accountHolder.getLastName() + "," + accountHolder.getPassWord() + "," + accountHolder.getCheckingAccount() + "," + accountHolder.getSavingsAccount();
+        bufferedWriterNewCustomer.newLine();
+        bufferedWriterNewCustomer.write(content);
+        bufferedWriterNewCustomer.close();
+        fw.close();
+
+    }
+    }
+
+
 
 
