@@ -84,6 +84,7 @@ public class Functions {
                         Functions.mainMenu(accountHolder);
                     }
                 } else if (checkingTransferChoice == 2) {
+
                     System.out.println("");
                 }
             }
@@ -219,7 +220,7 @@ public class Functions {
         }catch (IOException e){
             e.printStackTrace();
         }
-
+        Functions.mainMenu(accountHolder);
 
 
 

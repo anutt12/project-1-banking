@@ -8,7 +8,7 @@ import java.util.List;
 
 public class BankData {
 
-public static List<AccountHolder> bankCustomers = new ArrayList<>();
+    public static List<AccountHolder> bankCustomers = new ArrayList<>();
 
 
     public static void readFile(String fileName) throws IOException {
@@ -20,7 +20,7 @@ public static List<AccountHolder> bankCustomers = new ArrayList<>();
             String currentLine = reader.readLine();
 
             while (currentLine != null) {
-                AccountHolder accountHolder= new AccountHolder();
+                AccountHolder accountHolder = new AccountHolder();
                 String[] data = currentLine.split(",");
                 accountHolder.setAccountNumber(Integer.parseInt(data[0]));
                 accountHolder.setFirstName(data[1]);
@@ -40,31 +40,19 @@ public static List<AccountHolder> bankCustomers = new ArrayList<>();
         }
     }
 
-//      static void writeFile(String fileName) throws IOException {
-//            File file = new File(fileName);
-//            FileWriter fw = new FileWriter(file, true);
-//            BufferedWriter br = new BufferedWriter(fw);
-//            for(AccountHolder accountHolder : bankCustomers){
-//                fw.write((accountHolder.getAccountNumber() + "," + accountHolder.getFirstName() + "," + accountHolder.getLastName() + "," + accountHolder.getPassWord() + "," + accountHolder.getCheckingAccount() + "," + accountHolder.getSavingsAccount()));
-//            }
-//
-//       ;
-//            fw.close();
-//
-//        }
 
-    static void createAccount(AccountHolder accountHolder)throws IOException{
+    static void createAccount(AccountHolder accountHolder) throws IOException {
         File fileOut = new File("C:\\Users\\anutt\\Desktop\\paypal-sei\\unit1\\java-project-1\\src\\customers.txt");
         FileWriter fw = new FileWriter(fileOut, true);
         BufferedWriter bufferedWriterNewCustomer = new BufferedWriter(fw);
-        String content = accountHolder.getAccountNumber() + "," + accountHolder.getFirstName() + "," + accountHolder.getLastName() + "," + accountHolder.getPassWord() + "," + accountHolder.getCheckingAccount() + "," + accountHolder.getSavingsAccount();
+        String content = accountHolder.getAccountNumber() + "," + accountHolder.getFirstName() + "," + accountHolder.getLastName() + "," + accountHolder.getPassWord() + "," + accountHolder.getCheckingAccount().getBalance() + "," + accountHolder.getSavingsAccount().getBalance();
         bufferedWriterNewCustomer.newLine();
         bufferedWriterNewCustomer.write(content);
         bufferedWriterNewCustomer.close();
         fw.close();
 
     }
-    }
+}
 
 
 

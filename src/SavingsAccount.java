@@ -1,8 +1,10 @@
-public class SavingsAccount implements AccountActions{
+public class SavingsAccount implements AccountActions {
 
     private float balance;
 
-    public SavingsAccount(float balance) {this.balance = balance;}
+    public SavingsAccount(float balance) {
+        this.balance = balance;
+    }
 
 
     @Override
